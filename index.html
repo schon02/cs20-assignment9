@@ -82,8 +82,56 @@
         }
     </script>
 
-    <!-- <div id="data">
-    </div> -->
+    <p id="data">
+    </p>
+
+    <form>
+        <label for="filter">Choose a genre:</label>
+        <select id="filter" name="filter">
+          <option value="pop">Pop</option>
+          <option value="rock">Rock</option>
+          <option value="slowPop">Slow Pop</option>
+          <option value="indiePop">Indie Pop</option>
+          <option value="hipHop">Hip Hop</option>
+          <option value="popRock">Pop Rock</option>
+
+        </select>
+        <input type="submit" onclick=filter()>
+      </form>
+
+      <div id="filteredData"></div>
+    
+
+      <script>
+          function filter() {
+            var selected = $('#filter :selected').text();
+            alert(selected);
+            document.getElementById("data").value = selected;
+          }
+
+
+          fetch('song_list.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("filteredData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = 'Title: ' + data[i].title + ' ' + 'Artist: ' + data[i].artist + ' ' + 'Genre: ' + data[i].genre + ' ' + 'Release Year: ' + data[i].releaseYear;
+                if (data[i].genre == selected) {
+                    mainContainer.appendChild(div);
+                }
+            }
+        }
+
+      </script>
 
 </body>
 
