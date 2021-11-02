@@ -103,28 +103,25 @@
 
       <div id="filteredData"></div>
 
-      <section>    
+      <section>   
+        <table id='table_temp'>
+        <tr>
+            <th>Song Title</th>
+            <th>Artist Name</th>
+            <th>Genre</th>
+            <th>Release Year</th>
+        </tr> 
+        </table>
             <!-- TABLE CONSTRUCTION-->
             <table id='table2'>
                 <!-- HEADING FORMATION -->
-                <tr>
-                    <th>Song Title</th>
-                    <th>Artist Name</th>
-                    <th>Genre</th>
-                    <th>Release Year</th>
-                </tr>
       
                 <script>
                     var selected; 
                     $(document).ready(function () {
                         $('#select_button').click(function(){ 
                         selected = ($('#filter :selected').text());
-                        document.getElementById("table2").innerHTML =                 <tr>
-                    <th>Song Title</th>
-                    <th>Artist Name</th>
-                    <th>Genre</th>
-                    <th>Release Year</th>
-                </tr>;
+                        document.getElementById("table2").innerHTML = "";
 
 
       
