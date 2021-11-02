@@ -58,13 +58,33 @@
             </script>
     </section>
    
-
+    <div id="myData"></div>
+    <script>
+        fetch('song_list.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = 'Title: ' + data[i].title + 'Artist: ' + data[i].artist + 'Genre: ' + data[i].genre + 'Release Year: ' + data[i].releaseYear;
+                mainContainer.appendChild(div);
+            }
+        }
+    </script>
     <!-- <div id="data">
     </div> -->
 
 </body>
 
-<script type="text/javascript" src="song_list.json"></script>
+<!-- <script type="text/javascript" src="song_list.json"></script>
 
 <script type="text/javascript" >
     
@@ -88,6 +108,6 @@ fetch('song_list.json')
         }
     }
 
-</script>
+</script> -->
 
 </html>
