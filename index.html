@@ -12,6 +12,7 @@
 <body>
     <section>
  
+    <h1>Part 3</h1>
         <!-- TABLE CONSTRUCTION-->
         <table id='table'>
             <!-- HEADING FORMATION -->
@@ -58,7 +59,7 @@
             </script>
     </section>
    
-        <p>h</p>
+    <h1>Part 2</h1>
     <div id="myData"></div>
     <script>
         fetch('song_list.json')
@@ -75,11 +76,12 @@
             var mainContainer = document.getElementById("myData");
             for (var i = 0; i < data.length; i++) {
                 var div = document.createElement("div");
-                div.innerHTML = 'Title: ' + data[i].title + 'Artist: ' + data[i].artist + 'Genre: ' + data[i].genre + 'Release Year: ' + data[i].releaseYear;
+                div.innerHTML = 'Title: ' + data[i].title + ' ' + 'Artist: ' + data[i].artist + ' ' + 'Genre: ' + data[i].genre + ' ' + 'Release Year: ' + data[i].releaseYear;
                 mainContainer.appendChild(div);
             }
         }
     </script>
+
     <!-- <div id="data">
     </div> -->
 
