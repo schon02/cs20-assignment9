@@ -96,16 +96,19 @@
           <option value="popRock">Pop Rock</option>
 
         </select>
-        <input type="submit" onclick=filter()>
+        <input type="submit" onclick="filter();">
       </form>
 
       <div id="filteredData"></div>
     
 
       <script>
+
+          var selected; 
+
           function filter() {
-            var selected = $('#filter :selected').text();
-            alert(selected);
+            selected = $('#filter:selected').text();
+            alert("selected");
             document.getElementById("data").value = selected;
           }
 
