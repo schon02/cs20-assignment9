@@ -135,6 +135,7 @@ selected = ($('#filter :selected').text());
 
 
         function appendData2(data) {
+            document.getElementById("filteredData").value = "";
             var mainContainer = document.getElementById("filteredData");
             for (var i = 0; i < data.length; i++) {
                 var div = document.createElement("div");
