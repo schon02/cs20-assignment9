@@ -1,0 +1,62 @@
+[
+        {
+            "title": "Butter",
+            "artist": "BTS",
+            "genre": "Pop",
+            "releaseYear": "2021"
+        },
+        {
+            "title": "Been Like This",
+            "artist": "Doja Cat",
+            "genre": "Pop",
+            "releaseYear": "2021"  
+        },
+        {
+            "title": "Don't Stop Me Now",
+            "artist": "Queen",
+            "genre": "Rock",
+            "releaseYear": "1979"
+        },
+        {
+            "title": "Summer",
+            "artist": "BROCKHAMPTON",
+            "genre": "Slow Pop",
+            "releaseYear": "2021"
+        },
+        {
+            "title": "Dancing in the Moonlight",
+            "artist": "King Harvest",
+            "genre": "Rock",
+            "releaseYear": "1996"
+        },
+        {
+            "title": "Lover's Rock",
+            "artist": "TV Girl",
+            "genre": "Indie Pop",
+            "releaseYear": "2014"
+        },
+        {
+            "title": "Mykonos",
+            "artist": "Fleet Foxes",
+            "genre": "Indie Rock",
+            "releaseYear": "2008"
+        },
+        {
+            "title": "Boom",
+            "artist": "DRP Live",
+            "genre": "Hip Hop",
+            "releaseYear": "2021"
+        },
+        {
+            "title": "Maybe She",
+            "artist": "Still Woozy",
+            "genre": "Indie Pop",
+            "releaseYear": "2019"
+        },
+        {
+            "title": "good 4 u",
+            "artist": "Olivia Rodrigo",
+            "genre": "Pop Rock",
+            "releaseYear": "2021"
+        }
+]

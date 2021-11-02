@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" />
+    <!-- INCLUDING JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="song_list.json"></script>
+
+</head>
+
+<body>
+    <section>
+ 
+        <!-- TABLE CONSTRUCTION-->
+        <table id='table'>
+            <!-- HEADING FORMATION -->
+            <tr>
+                <th>Song Title</th>
+                <th>Artist Name</th>
+                <th>Genre</th>
+                <th>Release Year</th>
+            </tr>
+  
+            <script>
+                $(document).ready(function () {
+  
+                    // FETCHING DATA FROM JSON FILE
+                    $.getJSON("song_list.json", 
+                            function (data) {
+                        var song = '';
+  
+                        // ITERATING THROUGH OBJECTS
+                        $.each(data, function (key, value) {
+  
+                            //CONSTRUCTION OF ROWS HAVING
+                            // DATA FROM JSON OBJECT
+                            song += '<tr>';
+                            song += '<td>' + 
+                                value.title + '</td>';
+  
+                            song += '<td>' + 
+                                value.artist + '</td>';
+  
+                            song += '<td>' + 
+                                value.genre + '</td>';
+  
+                            song += '<td>' + 
+                                value.releaseYear + '</td>';
+  
+                            song += '</tr>';
+                        });
+                          
+                        //INSERTING ROWS INTO TABLE 
+                        $('#table').append(song);
+                    });
+                });
+            </script>
+    </section>
+
+    <!-- <div id="data">
+    </div> -->
+
+</body>
+
+<!-- <script type="text/javascript" src="song_list.json"></script>
+
+<script type="text/javascript" >
+
+
+    // var jsonString = JSON.stringify(Songs);
+    // document.write(jsonString);
+
+    function load() {
+        var mydata = JSON.parse(data);
+        alert(mydata.length);
+
+        var div = document.getElementById('data');
+
+        for(var i = 0; i < mydata.length; i++)
+        {
+            div.innerHTML = div.innerHTML + "<p class='inner' id="+i+">"+ mydata[i].name +"</p>" + "<br>";
+        }
+    }
+
+</script> -->
+
+</html>
