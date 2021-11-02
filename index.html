@@ -85,6 +85,7 @@
     <p id="data">
     </p>
 
+        <h1>Part 4</h4>
     <form>
         <label for="filter">Choose a genre: </label>
         <select id="filter" name="filter">
@@ -135,7 +136,7 @@ selected = ($('#filter :selected').text());
 
 
         function appendData2(data) {
-            document.getElementById("filteredData").value = "";
+            document.getElementById("filteredData").innerHTML = "";
             var mainContainer = document.getElementById("filteredData");
             for (var i = 0; i < data.length; i++) {
                 var div = document.createElement("div");
