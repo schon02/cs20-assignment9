@@ -57,6 +57,7 @@
                 });
             </script>
     </section>
+   
 
     <!-- <div id="data">
     </div> -->
@@ -70,6 +71,7 @@
 fetch('song_list.json')
   .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
   .then(data => console.log(data));
+    document.write(data);
 
     var jsonString = JSON.stringify(song_list.json);
     document.write(jsonString);
