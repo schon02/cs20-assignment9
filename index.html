@@ -110,17 +110,7 @@ $(document).ready(function(){
   $('#select_button').click(function(){ 
 //     alert($('#filter :selected').text());
 selected = ($('#filter :selected').text());
-      
-          fetch('song_list.json')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                appendData2(data);
-            })
-            .catch(function (err) {
-                console.log('error: ' + err);
-            });
+   
             
       
   });
@@ -132,7 +122,16 @@ selected = ($('#filter :selected').text());
         //     document.getElementById("data").value = selected;
         //   }
 
-
+          fetch('song_list.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData2(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
 
         function appendData2(data) {
             var mainContainer = document.getElementById("filteredData");
