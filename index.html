@@ -33,7 +33,7 @@
             }
         }
     </script>
-    
+
     <section>    
     <h1>Part 3</h1>
         <!-- TABLE CONSTRUCTION-->
@@ -103,36 +103,88 @@
 
       <div id="filteredData"></div>
 
+      <section>    
+        <h1>Part 3</h1>
+            <!-- TABLE CONSTRUCTION-->
+            <table id='table'>
+                <!-- HEADING FORMATION -->
+                <tr>
+                    <th>Song Title</th>
+                    <th>Artist Name</th>
+                    <th>Genre</th>
+                    <th>Release Year</th>
+                </tr>
+      
+                <script>
+                    var selected; 
+                    $(document).ready(function () {
+                        selected = ($('#filter :selected').text());
+
+      
+                        // FETCHING DATA FROM JSON FILE
+                        $.getJSON("song_list.json", 
+                                function (data) {
+                            var song = '';
+      
+                            // ITERATING THROUGH OBJECTS
+                            $.each(data, function (key, value) {
+      
+                                //CONSTRUCTION OF ROWS HAVING
+                                // DATA FROM JSON OBJECT
+                                song += '<tr>';
+                                song += '<td>' + 
+                                    value.title + '</td>';
+      
+                                song += '<td>' + 
+                                    value.artist + '</td>';
+      
+                                song += '<td>' + 
+                                    value.genre + '</td>';
+      
+                                song += '<td>' + 
+                                    value.releaseYear + '</td>';
+      
+                                song += '</tr>';
+                            });
+                              
+                            //INSERTING ROWS INTO TABLE 
+                            if (value.genre == selected) {
+                                $('#table').append(song);
+                            }
+                        });
+                    });
+                </script>
+                </table>
+        </section>
+
 <script>
-    var selected; 
 
-    $(document).ready(function(){ 
-    $('#select_button').click(function(){ 
-            selected = ($('#filter :selected').text());
-            fetch('song_list.json')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                appendData2(data);
-            })
-            .catch(function (err) {
-                console.log('error: ' + err);
-            });         
-    });
-    });
+    // $(document).ready(function(){ 
+    // $('#select_button').click(function(){ 
+    //         fetch('song_list.json')
+    //         .then(function (response) {
+    //             return response.json();
+    //         })
+    //         .then(function (data) {
+    //             appendData2(data);
+    //         })
+    //         .catch(function (err) {
+    //             console.log('error: ' + err);
+    //         });         
+    // });
+    // });
 
-    function appendData2(data) {
-        document.getElementById("filteredData").innerHTML = "";
-        var mainContainer = document.getElementById("filteredData");
-        for (var i = 0; i < data.length; i++) {
-            var div = document.createElement("div");
-            div.innerHTML = 'Title: ' + data[i].title + ' ' + 'Artist: ' + data[i].artist + ' ' + 'Genre: ' + data[i].genre + ' ' + 'Release Year: ' + data[i].releaseYear;
-            if (data[i].genre == selected) {
-                mainContainer.appendChild(div);
-            }
-        }
-    }
+    // function appendData2(data) {
+    //     document.getElementById("filteredData").innerHTML = "";
+    //     var mainContainer = document.getElementById("filteredData");
+    //     for (var i = 0; i < data.length; i++) {
+    //         var div = document.createElement("div");
+    //         div.innerHTML = 'Title: ' + data[i].title + ' ' + 'Artist: ' + data[i].artist + ' ' + 'Genre: ' + data[i].genre + ' ' + 'Release Year: ' + data[i].releaseYear;
+    //         if (data[i].genre == selected) {
+    //             mainContainer.appendChild(div);
+    //         }
+    //     }
+    // }
 
 </script>
 
