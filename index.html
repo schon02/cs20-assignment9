@@ -115,12 +115,12 @@
                 return response.json();
             })
             .then(function (data) {
-                appendData(data);
+                appendData2(data);
             })
             .catch(function (err) {
                 console.log('error: ' + err);
             });
-        function appendData(data) {
+        function appendData2(data) {
             var mainContainer = document.getElementById("filteredData");
             for (var i = 0; i < data.length; i++) {
                 var div = document.createElement("div");
