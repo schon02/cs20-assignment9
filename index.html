@@ -86,7 +86,7 @@
     </p>
 
     <form>
-        <label for="filter">Choose a genre:</label>
+        <label for="filter">Choose a genre: </label>
         <select id="filter" name="filter">
           <option value="pop">Pop</option>
           <option value="rock">Rock</option>
@@ -96,7 +96,7 @@
           <option value="popRock">Pop Rock</option>
 
         </select>
-        <input type="submit" onclick="filter();">
+        <input type="submit" id="select_button">
       </form>
 
       <div id="filteredData"></div>
@@ -106,11 +106,17 @@
 
           var selected; 
 
-          function filter() {
-            selected = $('#filter:selected').text();
-            alert("selected");
-            document.getElementById("data").value = selected;
-          }
+$(document).ready(function(){ 
+  $('#select_button').click(function(){ 
+    alert($('#filter :selected').text());
+  });
+});
+
+        //   function filter() {
+        //     selected = $('#filter :selected').text();
+        //     alert(selected);
+        //     document.getElementById("data").value = selected;
+        //   }
 
 
           fetch('song_list.json')
