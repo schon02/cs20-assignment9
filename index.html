@@ -36,9 +36,9 @@
 
     <section>    
     <h1>Part 3</h1>
-        <!-- TABLE CONSTRUCTION-->
+        <!-- construct table-->
         <table id='table'>
-            <!-- HEADING FORMATION -->
+            <!-- table header -->
             <tr>
                 <th>Song Title</th>
                 <th>Artist Name</th>
@@ -49,16 +49,15 @@
             <script>
                 $(document).ready(function () {
   
-                    // FETCHING DATA FROM JSON FILE
+                    // fetch data from json file
                     $.getJSON("song_list.json", 
                             function (data) {
                         var song = '';
   
-                        // ITERATING THROUGH OBJECTS
+                        // iterate through json objects
                         $.each(data, function (key, value) {
   
-                            //CONSTRUCTION OF ROWS HAVING
-                            // DATA FROM JSON OBJECT
+                            //construct table rows from json object data
                             song += '<tr>';
                             song += '<td>' + 
                                 value.title + '</td>';
@@ -73,9 +72,8 @@
                                 value.releaseYear + '</td>';
   
                             song += '</tr>';
-                        });
-                          
-                        //INSERTING ROWS INTO TABLE 
+                        });  
+                        //insert rows into table 
                         $('#table').append(song);
                     });
                 });
@@ -83,11 +81,7 @@
             </table>
     </section>
 
-
-    <!-- <p id="data">
-    </p> -->
-
-        <h1>Part 4</h4>
+    <h1>Part 4</h4>
     <form>
         <label for="filter">Choose a genre: </label>
         <select id="filter" name="filter">
@@ -112,30 +106,25 @@
             <th>Release Year</th>
         </tr> 
         </table>
-            <!-- TABLE CONSTRUCTION-->
-            <table id='table2'>
-                <!-- HEADING FORMATION -->
-      
+            <!-- construct table -->
+            <table id='table2'>      
                 <script>
                     var selected; 
                     $(document).ready(function () {
                         $('#select_button').click(function(){ 
                         selected = ($('#filter :selected').text());
                         document.getElementById("table2").innerHTML = "";
-
-
       
-                        // FETCHING DATA FROM JSON FILE
+                        // fetch data from json file
                         $.getJSON("song_list.json", 
                                 function (data) {
                             var song = '';
       
-                            // ITERATING THROUGH OBJECTS
+                            // iterate through json objects
                             $.each(data, function (key, value) {
       
                                 if (value.genre == selected) {
-                                    //CONSTRUCTION OF ROWS HAVING
-                                    // DATA FROM JSON OBJECT
+                                    //construct table rows from json object data
                                     song += '<tr>';
                                     song += '<td>' + 
                                         value.title + '</td>';
@@ -152,49 +141,14 @@
                                     song += '</tr>';
                                 }
                             });
-                              
-                            //INSERTING ROWS INTO TABLE 
-                            // if (value.genre == selected) {
-                                $('#table2').append(song);
-                            // }
+                            //insert rows into table 
+                            $('#table2').append(song);
                         });
                     });
                 });
-
                 </script>
-                </table>
+            </table>
         </section>
-
-<script>
-
-    // $(document).ready(function(){ 
-    // $('#select_button').click(function(){ 
-    //         fetch('song_list.json')
-    //         .then(function (response) {
-    //             return response.json();
-    //         })
-    //         .then(function (data) {
-    //             appendData2(data);
-    //         })
-    //         .catch(function (err) {
-    //             console.log('error: ' + err);
-    //         });         
-    // });
-    // });
-
-    // function appendData2(data) {
-    //     document.getElementById("filteredData").innerHTML = "";
-    //     var mainContainer = document.getElementById("filteredData");
-    //     for (var i = 0; i < data.length; i++) {
-    //         var div = document.createElement("div");
-    //         div.innerHTML = 'Title: ' + data[i].title + ' ' + 'Artist: ' + data[i].artist + ' ' + 'Genre: ' + data[i].genre + ' ' + 'Release Year: ' + data[i].releaseYear;
-    //         if (data[i].genre == selected) {
-    //             mainContainer.appendChild(div);
-    //         }
-    //     }
-    // }
-
-</script>
 
 </body>
 </html>
