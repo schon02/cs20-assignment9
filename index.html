@@ -129,28 +129,30 @@
                             // ITERATING THROUGH OBJECTS
                             $.each(data, function (key, value) {
       
-                                //CONSTRUCTION OF ROWS HAVING
-                                // DATA FROM JSON OBJECT
-                                song += '<tr>';
-                                song += '<td>' + 
-                                    value.title + '</td>';
-      
-                                song += '<td>' + 
-                                    value.artist + '</td>';
-      
-                                song += '<td>' + 
-                                    value.genre + '</td>';
-      
-                                song += '<td>' + 
-                                    value.releaseYear + '</td>';
-      
-                                song += '</tr>';
+                                if (value.genre == selected) {
+                                    //CONSTRUCTION OF ROWS HAVING
+                                    // DATA FROM JSON OBJECT
+                                    song += '<tr>';
+                                    song += '<td>' + 
+                                        value.title + '</td>';
+        
+                                    song += '<td>' + 
+                                        value.artist + '</td>';
+        
+                                    song += '<td>' + 
+                                        value.genre + '</td>';
+        
+                                    song += '<td>' + 
+                                        value.releaseYear + '</td>';
+        
+                                    song += '</tr>';
+                                }
                             });
                               
                             //INSERTING ROWS INTO TABLE 
-                            if (value.genre == selected) {
+                            // if (value.genre == selected) {
                                 $('#table2').append(song);
-                            }
+                            // }
                         });
                     });
                 });
@@ -160,8 +162,6 @@
         </section>
 
 <script>
-
-
 
     // $(document).ready(function(){ 
     // $('#select_button').click(function(){ 
