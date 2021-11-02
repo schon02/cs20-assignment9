@@ -108,17 +108,9 @@
 
 $(document).ready(function(){ 
   $('#select_button').click(function(){ 
-    alert($('#filter :selected').text());
-  });
-});
-
-        //   function filter() {
-        //     selected = $('#filter :selected').text();
-        //     alert(selected);
-        //     document.getElementById("data").value = selected;
-        //   }
-
-
+//     alert($('#filter :selected').text());
+selected = ($('#filter :selected').text());
+      
           fetch('song_list.json')
             .then(function (response) {
                 return response.json();
@@ -129,6 +121,19 @@ $(document).ready(function(){
             .catch(function (err) {
                 console.log('error: ' + err);
             });
+            
+      
+  });
+});
+
+        //   function filter() {
+        //     selected = $('#filter :selected').text();
+        //     alert(selected);
+        //     document.getElementById("data").value = selected;
+        //   }
+
+
+
         function appendData2(data) {
             var mainContainer = document.getElementById("filteredData");
             for (var i = 0; i < data.length; i++) {
