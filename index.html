@@ -11,7 +11,7 @@
 
 <body>
     <section>
- 
+        
     <h1>Part 3</h1>
         <!-- TABLE CONSTRUCTION-->
         <table id='table'>
@@ -57,6 +57,7 @@
                     });
                 });
             </script>
+            </table>
     </section>
    
     <h1>Part 2</h1>
@@ -95,25 +96,19 @@
           <option value="indiePop">Indie Pop</option>
           <option value="hipHop">Hip Hop</option>
           <option value="popRock">Pop Rock</option>
-
         </select>
         <button type='button' id="select_button">Submit</button> 
-<!--         <input type="submit" id="select_button"> -->
       </form>
 
       <div id="filteredData"></div>
-    
 
-      <script>
+<script>
+    var selected; 
 
-          var selected; 
-
-$(document).ready(function(){ 
-  $('#select_button').click(function(){ 
-//     alert($('#filter :selected').text());
-selected = ($('#filter :selected').text());
-   
-          fetch('song_list.json')
+    $(document).ready(function(){ 
+    $('#select_button').click(function(){ 
+            selected = ($('#filter :selected').text());
+            fetch('song_list.json')
             .then(function (response) {
                 return response.json();
             })
@@ -123,58 +118,22 @@ selected = ($('#filter :selected').text());
             .catch(function (err) {
                 console.log('error: ' + err);
             });         
-      
-  });
-});
+    });
+    });
 
-        //   function filter() {
-        //     selected = $('#filter :selected').text();
-        //     alert(selected);
-        //     document.getElementById("data").value = selected;
-        //   }
-
-
-
-        function appendData2(data) {
-            document.getElementById("filteredData").innerHTML = "";
-            var mainContainer = document.getElementById("filteredData");
-            for (var i = 0; i < data.length; i++) {
-                var div = document.createElement("div");
-                div.innerHTML = 'Title: ' + data[i].title + ' ' + 'Artist: ' + data[i].artist + ' ' + 'Genre: ' + data[i].genre + ' ' + 'Release Year: ' + data[i].releaseYear;
-                if (data[i].genre == selected) {
-                    mainContainer.appendChild(div);
-                }
+    function appendData2(data) {
+        document.getElementById("filteredData").innerHTML = "";
+        var mainContainer = document.getElementById("filteredData");
+        for (var i = 0; i < data.length; i++) {
+            var div = document.createElement("div");
+            div.innerHTML = 'Title: ' + data[i].title + ' ' + 'Artist: ' + data[i].artist + ' ' + 'Genre: ' + data[i].genre + ' ' + 'Release Year: ' + data[i].releaseYear;
+            if (data[i].genre == selected) {
+                mainContainer.appendChild(div);
             }
-        }
-
-      </script>
-
-</body>
-
-<!-- <script type="text/javascript" src="song_list.json"></script>
-
-<script type="text/javascript" >
-    
-fetch('song_list.json')
-  .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
-  .then(data => console.log(data));
-    document.write(data);
-
-    var jsonString = JSON.stringify(song_list.json);
-    document.write(jsonString);
-
-    function load() {
-        var mydata = JSON.parse(data);
-        alert(mydata.length);
-
-        var div = document.getElementById('data');
-
-        for(var i = 0; i < mydata.length; i++)
-        {
-            div.innerHTML = div.innerHTML + "<p class='inner' id="+i+">"+ mydata[i].name +"</p>" + "<br>";
         }
     }
 
-</script> -->
+</script>
 
+</body>
 </html>
